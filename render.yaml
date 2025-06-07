@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: llbp-generator
+    name: llbp-backend
     env: node
     plan: free
     buildCommand: |
