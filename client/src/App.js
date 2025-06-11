@@ -7,8 +7,9 @@ export default function App() {
   const [report, setReport] = useState(null);
   const [result, setResult] = useState("");
 
-  const response = await fetch("https://llbp-backend.onrender.com/process", { ... });
-
+  const handleReportChange = (e) => {
+    setReport(e.target.files[0]);
+  };
 
   const handleSubmit = async () => {
     if (!report) return;
@@ -30,8 +31,6 @@ export default function App() {
     }
 
     const blob = await res.blob();
-    console.log("Blob type:", blob.type, "Size:", blob.size);
-
     const url = URL.createObjectURL(blob);
     setResult(url);
   };
